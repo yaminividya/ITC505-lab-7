@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mad Lib Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            width: 100%;
+            background-color: purple;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        form {
+            max-width: 100%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: rebeccapurple;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        button[type="submit"] {
+            background-color: purple;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            color: white;
+            background-color: purple;
+            width: 100%;
+        }
+
+        img {
+            max-width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Mad Lib Form</h1>
+    </header>
+    <div class="form-container">
+        <form action="/submit" method="post">
+            <label for="adjective">Adjective:</label>
+            <input type="text" id="adjective" name="adjective" required><br>
+
+            <label for="noun">Noun:</label>
+            <input type="text" id="noun" name="noun" required><br>
+
+            <label for="verb">Verb:</label>
+            <input type="text" id="verb" name="verb" required><br>
+
+            <label for="adverb">Adverb:</label>
+            <input type="text" id="adverb" name="adverb" required><br>
+
+            <label for="noun2">Noun:</label>
+            <input type="text" id="noun2" name="noun2" required><br>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <img src="MadLibImage.jpeg" alt="Image">
+    <footer>
+        <h2>ADDENDUM:</h2>
+        <div>
+            <p><b><u>Setting Up ExpressJS Server:</u></b> I created an ExpressJS server script named `server.js` to
+                handle HTTP
+                requests. This script includes middleware setup, such as `express.urlencoded` for parsing form data and
+                `morgan` for logging. Additionally, it defines a route (`/do_a_random`) to generate a random number and
+                serves static files from the `public` directory.</p>
+        </div>
+        <div>
+            <p><b><u>Installing Necessary npm Packages:</u></b> To utilize ExpressJS and enhance logging capabilities, I
+                installed three npm packages: `express`, `morgan`, and `forever`. These packages provide functionalities
+                for creating the server, improving logging, and managing server processes, respectively.</p>
+        </div>
+        <div>
+            <p><b><u>Structuring Website Directory:</u></b> I organized the project directory by creating a `public`
+                folder to host static files, including HTML and CSS files for each lab. These files are served by
+                ExpressJS.</p>
+        </div>
+        <div>
+            <p><b><u>Running the Express Server:</u></b> To run the Express server locally for development, I executed
+                the command `node server.js local` in the terminal/command prompt within the website directory. This
+                command starts the server on port 8080. </p>
+        </div>
+        <div>
+            <p><b><u>Testing the Server and Form Submission:</u></b> I verified that the server was working correctly by
+                visiting the specified URLs (`http://localhost:8080/itc505/lab-4` and
+                `http://localhost:8080/do_a_random`). Then, I created a new webpage.</p>
+        </div>
+        <div>
+            <p><b><u>Implementing Form Submission Handling:</u></b>  I created a form in `index.html` with input fields
+                for adjective, noun, verb, adverb, and noun2. Upon form submission, ExpressJS handles the POST request
+                to `/submit`. The server extracts the form data and constructs a Mad Libs story using string
+                interpolation. If any field is missing, it returns an error message.</p>
+        </div>
+        <br />
+        <p><b>Last updated: <span id="lastModified"></span></b></p>
+    </footer>
+    <script type="text/javascript">
+        var x = document.lastModified;
+        document.getElementById('lastModified').textContent = x;
+    </script>
+</body>
+
+</html>
